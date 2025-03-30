@@ -1,0 +1,72 @@
+[
+    {
+      "id": 0,
+      "imageUrl": "https://cdn.dodostatic.net/static/Img/Products/02ca2561953b488993878d1f70e359de_1875x1875.jpeg",
+      "title": "Пепперони Фреш с перцем",
+      "types": [0, 1],
+      "sizes": [26, 30, 40],
+      "price": 19,
+      "category": 0,
+      "rating": 4
+    },
+    {
+      "id": 1,
+      "imageUrl": "https://i8.photo.2gis.com/images/branch/38/5348024604702581_03c1.jpg",
+      "title": "Кисло-сладкий цыпленок",
+      "types": [1],
+      "sizes": [26, 40],
+      "price": 19,
+      "category": 2,
+      "rating": 2
+    },
+    {
+      "id": 2,
+      "imageUrl": "https://static.tildacdn.com/stor6535-3335-4631-b466-613765656166/81606255.jpg",
+      "title": "Чизбургер-пицца",
+      "types": [0, 1],
+      "sizes": [26, 30, 40],
+      "price": 20,
+      "category": 3,
+      "rating": 8
+    },
+    {
+      "id": 3,
+      "imageUrl": "https://sun9-50.userapi.com/impg/c858320/v858320878/16807b/y6sGLqFSS_Q.jpg?size=584x584&quality=96&sign=25d048fd66e624782efd60ef4d39404c&type=album",
+      "title": "Крэйзи пепперони",
+      "types": [0],
+      "sizes": [30, 40],
+      "price": 20,
+      "category": 2,
+      "rating": 2
+    },
+    {
+      "id": 4,
+      "imageUrl": "https://i5.photo.2gis.com/images/branch/23/3236962279361960_7bf4.jpg",
+      "title": "Пепперони",
+      "types": [0, 1],
+      "sizes": [26, 30, 40],
+      "price": 18,
+      "category": 1,
+      "rating": 9
+    },
+    {
+      "id": 5,
+      "imageUrl": "https://avatars.mds.yandex.net/i?id=b6a388ff67a8b475e795e02e7837f7dc_l-10505565-images-thumbs&n=13",
+      "title": "Четыре сезона",
+      "types": [0, 1],
+      "sizes": [30, 40],
+      "price": 19,
+      "category": 5,
+      "rating": 10
+    },
+    {
+      "id": 6,
+      "imageUrl": "https://sun9-9.userapi.com/impg/JxcjWkgd-yEhzMkFL81deCEcK9fHRghbiEs8vA/PEmW27gGCss.jpg?size=760x760&quality=96&sign=cacf200d57a2c4094344aae6f776bf01&c_uniq_tag=ZSwoKyQSwatvn184I73JzT1uIDlJDWZ8Eo4MmhGt-JE&type=none",
+      "title": "Аррива",
+      "types": [0, 1],
+      "sizes": [26, 30, 40],
+      "price": 19,
+      "category": 5,
+      "rating": 7
+    }
+  ]
