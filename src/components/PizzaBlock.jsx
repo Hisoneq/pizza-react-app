@@ -17,14 +17,14 @@ export default function PizzaBlock(props) {
         <ul>
           {
             props.types.map((typeIndex)=>{
-              return <li onClick={()=>{setActiveType(typeIndex)}} className={activeType === typeIndex ? "active" : ""}>{typeNames[typeIndex]}</li>
+              return <li onClick={()=>{setActiveType(typeIndex)}} className={activeType === typeIndex ? "active" : ""} key={typeIndex}>{typeNames[typeIndex]}</li>
             })
           }
         </ul>
         <ul>
           {
             props.sizes.map((value, i) => {
-              return <li onClick={()=>{setActiveSize(i)}} className={activeSize === i ? "active" : ""}>{value} см.</li>
+              return <li onClick={()=>{setActiveSize(i)}} className={activeSize === i ? "active" : ""} key={i}>{value} см.</li>
             })
           }
         </ul>

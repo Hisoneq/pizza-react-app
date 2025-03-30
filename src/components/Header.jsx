@@ -1,14 +1,6 @@
-// import React, { useEffect, useState } from "react";
 import pizzaLogo from '../assets/img/pizza-logo.svg'
-// import { getTotalPizzas } from "./PizzaBlock";
 
 export default function Header(){
-  // const[count, setCount] = useState(0);
-
-  // useEffect(()=>{
-  //   setCount(getTotalPizzas());
-  // },[])
-
     return(
         <div className="header">
         <div className="container">
