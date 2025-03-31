@@ -3,7 +3,7 @@ import React, { useState } from "react";
 export default function Sort(){
   const [isVisible, setIsVisible] = useState(false);
   const menu = ['популярности', 'цене', 'алфавиту'];
-  const [menuItem, setMenuItem] = useState(0);
+
 
     return(<div className="sort">
         <div className="sort__label">

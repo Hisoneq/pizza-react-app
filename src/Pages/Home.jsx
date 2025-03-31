@@ -8,6 +8,9 @@ import { useEffect, useState } from "react";
 export default function Home(){
       const [items, setItems] = useState([]);
       const [isLoading, setIsLoading] = useState(true);
+
+      const [categoryId, setCategoryId] = useState(0);
+      const [sort, setSort] = useState(0);
     
       useEffect(() => {
         fetch("https://67ea3fe134bcedd95f62b761.mockapi.io/items")
@@ -22,8 +25,8 @@ export default function Home(){
     return(
         <div className="container"> 
             <div className="content__top">
-            <Categories />
-            <Sort />
+            <Categories value={categoryId} onClickCategory={(index)=>{setCategoryId(index)}}/>
+            <Sort value={sort}/>
           </div>
           <h2 className="content__title">Все пиццы</h2>
           <div className="content__items">
