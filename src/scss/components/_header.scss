@@ -12,6 +12,24 @@
 
   &__logo {
     display: flex;
+    
+    @media (max-width: 454px) {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      img{
+        padding-bottom: 20px;
+      }
+
+      h1, p {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+
+    }
 
     img {
       margin-right: 15px;

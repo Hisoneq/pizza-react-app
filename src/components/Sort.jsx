@@ -26,7 +26,10 @@ export default function Sort(){
           <b>Сортировка по:</b>
           <span onClick={()=>{setIsVisible(!isVisible)}}>{menu[menuItem]}</span>
         </div>
-        <div className="sort__popup">
+        <div 
+          className="sort__popup" 
+          style={isVisible ? { boxShadow: '0px 5px 15px rgba(0, 0, 0, 0.09)' } : {}}
+        >
           {
             isVisible && (<ul>
               {

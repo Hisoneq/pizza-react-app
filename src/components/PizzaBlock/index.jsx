@@ -6,7 +6,8 @@ export default function PizzaBlock(props) {
   const typeNames = ['Тонкое', 'Традиционное'];
 
   return (
-    <div className="pizza-block">
+    <div className="pizza-block-wrapper">
+      <div className="pizza-block">
       <img
         className="pizza-block__image"
         src={props.img}
@@ -50,6 +51,7 @@ export default function PizzaBlock(props) {
           <i>0</i>
         </button>
       </div>
+    </div>
     </div>
   )
 }
