@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
-export default function Sort(){
+export default function Sort({value, onClickSort}){
+
   const [isVisible, setIsVisible] = useState(false);
   const menu = ['популярности', 'цене', 'алфавиту'];
 
@@ -24,7 +25,7 @@ export default function Sort(){
             />
           </svg>
           <b>Сортировка по:</b>
-          <span onClick={()=>{setIsVisible(!isVisible)}}>{menu[menuItem]}</span>
+          <span onClick={()=>{setIsVisible(!isVisible)}}>{menu[value]}</span>
         </div>
         <div 
           className="sort__popup" 
@@ -33,8 +34,8 @@ export default function Sort(){
           {
             isVisible && (<ul>
               {
-                menu.map((value, index)=>{
-                  return <li onClick={()=>{setMenuItem(index); setIsVisible(false)}} className={menuItem === index ? "active" : ""} key={index} >{value}</li>
+                menu.map((itemName, index)=>{
+                  return <li onClick={()=>{onClickSort(index); setIsVisible(false)}} className={value === index ? "active" : ""} key={index} >{itemName}</li>
                 })
               }
             </ul>)

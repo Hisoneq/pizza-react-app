@@ -26,7 +26,7 @@ export default function Home(){
         <div className="container"> 
             <div className="content__top">
             <Categories value={categoryId} onClickCategory={(index)=>{setCategoryId(index)}}/>
-            <Sort value={sort}/>
+            <Sort value={sort} onClickSort={(index)=>{setSort(index)}}/>
           </div>
           <h2 className="content__title">Все пиццы</h2>
           <div className="content__items">
