@@ -10,17 +10,21 @@ export default function Home(){
       const [isLoading, setIsLoading] = useState(true);
 
       const [categoryId, setCategoryId] = useState(0);
-      const [sort, setSort] = useState(0);
+      const [sort, setSort] = useState({
+        name: 'популярности',
+        sortProperty: 'rating'
+      });
     
       useEffect(() => {
-        fetch("https://67ea3fe134bcedd95f62b761.mockapi.io/items")
+        setIsLoading(true);
+        fetch(`https://67ea3fe134bcedd95f62b761.mockapi.io/items?${categoryId > 0 ? `category=${categoryId}` : ''}&sortBy=${sort.sortProperty}&order=desc`)
           .then((res) => res.json())
           .then((data) => setItems(data))
           .finally(() => {
             setIsLoading(false);
           });
         window.scrollTo(0, 0);
-      }, []);
+      }, [categoryId, sort]);
 
     return(
         <div className="container"> 

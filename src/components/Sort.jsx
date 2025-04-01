@@ -3,7 +3,7 @@ import React, { useState } from "react";
 export default function Sort({value, onClickSort}){
 
   const [isVisible, setIsVisible] = useState(false);
-  const menu = ['популярности', 'цене', 'алфавиту'];
+  const menu = [{name: 'популярности', sortProperty: 'rating'}, {name: 'цене', sortProperty: 'price'}, {name: 'алфавиту', sortProperty: 'title'}];
 
 
     return(<div className="sort">
@@ -25,7 +25,7 @@ export default function Sort({value, onClickSort}){
             />
           </svg>
           <b>Сортировка по:</b>
-          <span onClick={()=>{setIsVisible(!isVisible)}}>{menu[value]}</span>
+          <span onClick={()=>{setIsVisible(!isVisible)}}>{value.name}</span>
         </div>
         <div 
           className="sort__popup" 
@@ -34,8 +34,8 @@ export default function Sort({value, onClickSort}){
           {
             isVisible && (<ul>
               {
-                menu.map((itemName, index)=>{
-                  return <li onClick={()=>{onClickSort(index); setIsVisible(false)}} className={value === index ? "active" : ""} key={index} >{itemName}</li>
+                menu.map((obj, index)=>{
+                  return <li onClick={()=>{onClickSort(obj); setIsVisible(false)}} className={value.sortProperty === obj.sortProperty ? "active" : ""} key={index} >{obj.name}</li>
                 })
               }
             </ul>)
