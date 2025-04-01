@@ -21,6 +21,13 @@
     }
   }
 
+  &__toggle {
+    padding-left: 15px;
+    font-weight: bold;
+    font-size: 22px;
+    cursor: pointer;
+  }
+
   &__popup {
     position: absolute;
     right: 0;

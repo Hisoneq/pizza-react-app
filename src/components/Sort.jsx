@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 
-export default function Sort({value, onClickSort}){
+export default function Sort({value, onClickSort, toggle, onClickToggle}){
 
   const [isVisible, setIsVisible] = useState(false);
   const menu = [{name: 'популярности', sortProperty: 'rating'}, {name: 'цене', sortProperty: 'price'}, {name: 'алфавиту', sortProperty: 'title'}];
-
 
     return(<div className="sort">
         <div className="sort__label">
@@ -26,6 +25,7 @@ export default function Sort({value, onClickSort}){
           </svg>
           <b>Сортировка по:</b>
           <span onClick={()=>{setIsVisible(!isVisible)}}>{value.name}</span>
+          <div className="sort__toggle" onClick={() => onClickToggle()} >{toggle ? '↑' : '↓'}</div>
         </div>
         <div 
           className="sort__popup" 

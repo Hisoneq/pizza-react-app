@@ -14,23 +14,24 @@ export default function Home(){
         name: 'популярности',
         sortProperty: 'rating'
       });
+      const [isActiveToggle, setIsActiveToggle] = useState(false);
     
       useEffect(() => {
         setIsLoading(true);
-        fetch(`https://67ea3fe134bcedd95f62b761.mockapi.io/items?${categoryId > 0 ? `category=${categoryId}` : ''}&sortBy=${sort.sortProperty}&order=desc`)
+        fetch(`https://67ea3fe134bcedd95f62b761.mockapi.io/items?${categoryId > 0 ? `category=${categoryId}` : ''}&sortBy=${sort.sortProperty}&order=${isActiveToggle ? `asc` : `desc`}`)
           .then((res) => res.json())
           .then((data) => setItems(data))
           .finally(() => {
             setIsLoading(false);
           });
         window.scrollTo(0, 0);
-      }, [categoryId, sort]);
+      }, [categoryId, sort, isActiveToggle]);
 
     return(
         <div className="container"> 
             <div className="content__top">
             <Categories value={categoryId} onClickCategory={(index)=>{setCategoryId(index)}}/>
-            <Sort value={sort} onClickSort={(index)=>{setSort(index)}}/>
+            <Sort value={sort} toggle={isActiveToggle} onClickSort={(index)=>{setSort(index)}} onClickToggle={()=>{setIsActiveToggle(!isActiveToggle)}}/>
           </div>
           <h2 className="content__title">Все пиццы</h2>
           <div className="content__items">
