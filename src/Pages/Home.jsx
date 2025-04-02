@@ -3,9 +3,13 @@ import Skeleton from "../components/PizzaBlock/Skeleton";
 import Sort from "../components/Sort";
 import Categories from "../components/Categories";
 
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { SearchContext } from "../App";
 
 export default function Home(){
+
+      const { searchValue } = useContext(SearchContext)
+
       const [items, setItems] = useState([]);
       const [isLoading, setIsLoading] = useState(true);
 
@@ -25,7 +29,24 @@ export default function Home(){
             setIsLoading(false);
           });
         window.scrollTo(0, 0);
-      }, [categoryId, sort, isActiveToggle]);
+      }, [categoryId, sort, isActiveToggle, searchValue]);
+
+      const skeletons = [...new Array(6)].map((_, index) => <Skeleton key={index} />)
+
+      const filteredPizzas = items.filter(obj => {
+        return obj.title.toLowerCase().includes(searchValue.toLowerCase());
+      });
+    
+      const pizzas = filteredPizzas.map((pizza) => (
+        <PizzaBlock
+            key={pizza.id}
+            title={pizza.title}
+            price={pizza.price}
+            img={pizza.imageUrl}
+            types={pizza.types}
+            sizes={pizza.sizes}
+        />
+      ));
 
     return(
         <div className="container"> 
@@ -36,17 +57,11 @@ export default function Home(){
           <h2 className="content__title">Все пиццы</h2>
           <div className="content__items">
             {isLoading
-              ? [...new Array(6)].map((_, index) => <Skeleton key={index} />)
-              : items.map((pizza) => (
-                  <PizzaBlock
-                    key={pizza.id}
-                    title={pizza.title}
-                    price={pizza.price}
-                    img={pizza.imageUrl}
-                    types={pizza.types}
-                    sizes={pizza.sizes}
-                  />
-                ))}
+              ? skeletons 
+              : filteredPizzas.length > 0 
+              ? pizzas 
+              : <p className="content__items_notFound">Нет пицц, соответствующих вашему запросу</p>
+            }
           </div>
         </div>
     )

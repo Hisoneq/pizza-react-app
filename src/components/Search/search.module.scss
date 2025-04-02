@@ -1,0 +1,45 @@
+.root{
+    position: relative;
+    left: -120px;
+
+    .input {
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        padding: 12px 20px;
+        padding-left: 40px;
+        width: 350px;
+        border-radius: 10px;
+        font-size: 16px;
+        transition: all 0.15s ease-in-out;
+
+        &:focus{
+            border: 1px solid rgba(0, 0, 0, 0.2);
+            width: 400px;
+        }
+    }
+    
+    .searchIcon{
+        width: 24px;
+        height: 24px;
+        top: 10px;
+        left: 10px;
+        opacity: 0.3;
+        position: absolute;
+    }
+
+    .cancelIcon{
+        width: 16px;
+        height: 16px;
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        opacity: 0.5;
+        transition: transform 1s ease;
+
+        &:hover{
+            transform: rotate(360deg);
+            opacity: 0.8;
+        }
+    }
+
+
+}
