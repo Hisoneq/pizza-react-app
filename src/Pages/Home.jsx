@@ -3,13 +3,15 @@ import Skeleton from "../components/PizzaBlock/Skeleton";
 import Sort from "../components/Sort";
 import Categories from "../components/Categories";
 
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 import { SearchContext } from "../App";
 import { useDispatch, useSelector } from "react-redux";
 import { setCategoryId, setSort, toggleSortOrder } from "../redux/slices/filterSlice";
+import { setItems, setIsLoading } from "../redux/slices/pizzasSlice"
 
 export default function Home() {
   const { categoryId, sort, isActiveToggle } = useSelector(state => state.filter);
+  const { items, isLoading } = useSelector(state => state.pizza) 
   const dispatch = useDispatch();
 
   const onChangeCategory = (id) => {
@@ -18,21 +20,18 @@ export default function Home() {
 
   const { searchValue } = useContext(SearchContext);
 
-  const [items, setItems] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
-
   useEffect(() => {
-    setIsLoading(true);
+    dispatch(setIsLoading(true));
     fetch(`https://67ea3fe134bcedd95f62b761.mockapi.io/items?${
       categoryId > 0 ? `category=${categoryId}` : ''
     }&sortBy=${sort.sortProperty}&order=${isActiveToggle ? 'asc' : 'desc'}`)
       .then((res) => res.json())
-      .then((data) => setItems(data))
+      .then((data) => dispatch(setItems(data)))
       .finally(() => {
-        setIsLoading(false);
+        dispatch(setIsLoading(false));
       });
     window.scrollTo(0, 0);
-  }, [categoryId, sort, isActiveToggle, searchValue]);
+  }, [categoryId, sort, isActiveToggle, searchValue, dispatch]);
 
   const skeletons = [...new Array(6)].map((_, index) => <Skeleton key={index} />);
 
