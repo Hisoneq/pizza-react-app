@@ -22,8 +22,14 @@ const filterSlice = createSlice({
     toggleSortOrder(state) {
       state.isActiveToggle = !state.isActiveToggle;
     },
+    setFilters(state, action) {
+      state.categoryId = Number(action.payload.categoryId);
+      state.isActiveToggle = action.payload;
+      state.sort = action.payload.sort;
+    },
   },
 });
 
-export const { setCategoryId, setSort, toggleSortOrder } = filterSlice.actions;
+export const { setCategoryId, setSort, toggleSortOrder, setFilters } =
+  filterSlice.actions;
 export default filterSlice.reducer;

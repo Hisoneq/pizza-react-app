@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 
+export const menu = [{name: 'популярности', sortProperty: 'rating'}, {name: 'цене', sortProperty: 'price'}, {name: 'алфавиту', sortProperty: 'title'}];
+
 export default function Sort({value, onClickSort, toggle, onClickToggle}){
 
   const [isVisible, setIsVisible] = useState(false);
-  const menu = [{name: 'популярности', sortProperty: 'rating'}, {name: 'цене', sortProperty: 'price'}, {name: 'алфавиту', sortProperty: 'title'}];
 
     return(<div className="sort">
         <div className="sort__label">
